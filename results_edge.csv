@@ -1,0 +1,13 @@
+case,expected,http,observed_body,ms
+E01 duplicate (send L01 email again),"200, duplicate:true, no new row",200,"{""status"": ""accepted"", ""lead_id"": ""72f4f1b7-3ba0-4920-877a-b6c0dd7b8cbf"", ""duplicate"": true}",4608
+E02 missing email (phone only),200 accepted,200,"{""status"": ""accepted"", ""lead_id"": ""6f8c3828-38ba-49a2-b81c-065a1635bd9e"", ""category"": ""WARM"", ""duplicate"": false, ""reply"": ""Hello! We have a 1 bed flat in Islington that matches your criteria (ref LON",1756
+E03 malformed JSON,400 malformed_json (n8n may return its own 400 text),422,"{""code"": 422, ""message"": ""Failed to parse request body"", ""hint"": ""Unexpected end of JSON input""}",404
+E04 very long message (~2800 chars),"200 accepted, message truncated to 2000",200,"{""status"": ""accepted"", ""lead_id"": ""6f2e35cd-432d-4a5c-9256-0464c50b25a6"", ""category"": ""WARM"", ""duplicate"": false, ""reply"": ""Hi! We have a 2 bed flat in Camden that matches your request - \""2 bed flat ",2144
+E05 non-English (Spanish),"200, reply in Spanish, no invented facts",200,"{""status"": ""accepted"", ""lead_id"": ""8314766f-acf7-4fd8-b3a3-d965bb007a79"", ""category"": ""WARM"", ""duplicate"": false, ""reply"": ""Hola Carlos, gracias por tu inter\u00e9s. Tenemos disponible el \""2 bed flat",1925
+E06 prompt injection,"200, NOT HOT, injection_suspected=true, ai skipped",200,"{""status"": ""accepted"", ""lead_id"": ""7cd35066-c434-425d-b6ba-68dc16d25c08"", ""category"": ""COLD"", ""duplicate"": false, ""reply"": ""Hello Eve, thank you for contacting Harbor & Pine Realty. These available pr",654
+E07 no matching property,"200, no property invented, generic reply",200,"{""status"": ""accepted"", ""lead_id"": ""a4c25ab4-baed-431f-975e-dfe54607172e"", ""category"": ""COLD"", ""duplicate"": false, ""reply"": ""Thank you for your enquiry. We currently do not have a 6-bedroom house in Ha",2503
+E08 out of service area (Leeds),"200, COLD, reply says area not covered",200,"{""status"": ""accepted"", ""lead_id"": ""5c67fb58-6b2d-4ef8-914e-36e53ef23855"", ""category"": ""COLD"", ""duplicate"": false, ""reply"": ""Hello Far, thank you for contacting Harbor & Pine Realty. Unfortunately we d",1614
+E11a wrong token,401 per contract (n8n default may be 403),403,"{""raw"": ""Authorization data is wrong!""}",771
+E11b missing token,401 per contract (n8n default may be 403),403,"{""raw"": ""Authorization data is wrong!""}",401
+X01 SPAM,422 rejected SPAM,422,"{""status"": ""rejected"", ""category"": ""SPAM"", ""reason"": ""too_many_links""}",776
+X02 INVALID (no contact),422 rejected INVALID,422,"{""status"": ""rejected"", ""category"": ""INVALID"", ""reason"": ""valid_email_or_phone_required""}",982

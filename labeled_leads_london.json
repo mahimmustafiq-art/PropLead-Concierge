@@ -1,0 +1,282 @@
+{
+  "_note": "Synthetic. Expected labels are the project's own (7 HOT, 7 WARM, 6 COLD). Send each payload to the WF-A webhook in Chat 5.",
+  "leads": [
+    {
+      "test_id": "L01",
+      "expected_category": "HOT",
+      "why": "fits LON-R002, urgent date, viewing request, full contact",
+      "payload": {
+        "name": "Priya Nair",
+        "message": "Hi, I'd like to view the 2 bed flat in Camden this week. My budget is 2600 a month and I need to move by 1 December. I'm free Thursday or Friday evening.",
+        "source": "website",
+        "email": "priya.nair@example.com",
+        "phone": "+44 7700 900101",
+        "preferred_area": "Camden",
+        "budget": "2600/month",
+        "bedrooms": 2
+      }
+    },
+    {
+      "test_id": "L02",
+      "expected_category": "HOT",
+      "why": "fits LON-R003, 2 weeks timeline, viewing tomorrow",
+      "payload": {
+        "name": "Tom Becker",
+        "message": "I need a 1 bed flat in Islington under 2000 a month. I start a new job in two weeks so I must move quickly. Can I view tomorrow?",
+        "source": "website",
+        "email": "tom.becker@example.com",
+        "phone": "+44 7700 900102",
+        "preferred_area": "Islington",
+        "budget": "2000/month",
+        "bedrooms": 1
+      }
+    },
+    {
+      "test_id": "L03",
+      "expected_category": "HOT",
+      "why": "buyer, AIP ready, fits LON-S007, weekend viewing",
+      "payload": {
+        "name": "Sofia Marin",
+        "message": "We have a mortgage agreement in principle and want to buy a 3 bed flat in Hackney up to 830000. Can we view this weekend? We are ready to make an offer quickly.",
+        "source": "website",
+        "email": "sofia.marin@example.com",
+        "phone": "+44 7700 900103",
+        "preferred_area": "Hackney",
+        "budget": 830000,
+        "bedrooms": 3
+      }
+    },
+    {
+      "test_id": "L04",
+      "expected_category": "HOT",
+      "why": "fits LON-R008, family relocation date, viewing Saturday",
+      "payload": {
+        "name": "Daniel Okoye",
+        "message": "Relocating with my family and need a 3 bed house in Clapham, budget 3600 per month, start date 15 December. Can we view on Saturday?",
+        "source": "website",
+        "email": "daniel.okoye@example.com",
+        "phone": "+44 7700 900104",
+        "preferred_area": "Clapham",
+        "budget": "3600/month",
+        "bedrooms": 3
+      }
+    },
+    {
+      "test_id": "L05",
+      "expected_category": "HOT",
+      "why": "fits LON-R011, ready to pay holding deposit",
+      "payload": {
+        "name": "Hannah Lee",
+        "message": "Looking for a 2 bed in Richmond, budget up to 2900 a month. I can pay the holding deposit straight after viewing and want to move in by 1 December.",
+        "source": "website",
+        "email": "hannah.lee@example.com",
+        "phone": "+44 7700 900105",
+        "preferred_area": "Richmond",
+        "budget": "2900/month",
+        "bedrooms": 2
+      }
+    },
+    {
+      "test_id": "L06",
+      "expected_category": "HOT",
+      "why": "cash buyer, fits LON-S008, this week",
+      "payload": {
+        "name": "James Whitfield",
+        "message": "I am a cash buyer looking at the 1 bed flat in Greenwich at 395000. I would like to view this week and could offer fast.",
+        "source": "website",
+        "email": "james.whitfield@example.com",
+        "phone": "+44 7700 900106",
+        "preferred_area": "Greenwich",
+        "budget": 395000,
+        "bedrooms": 1
+      }
+    },
+    {
+      "test_id": "L07",
+      "expected_category": "HOT",
+      "why": "fits LON-R005, 10-day deadline, can view today",
+      "payload": {
+        "name": "Aisha Rahman",
+        "message": "I must move within 10 days. Need a 2 bed in Hackney around 2300 a month. I can view today or tomorrow, please call me.",
+        "source": "website",
+        "email": "aisha.rahman@example.com",
+        "phone": "+44 7700 900107",
+        "preferred_area": "Hackney",
+        "budget": "2300/month",
+        "bedrooms": 2
+      }
+    },
+    {
+      "test_id": "L08",
+      "expected_category": "WARM",
+      "why": "clear need, no fixed date",
+      "payload": {
+        "name": "Mark Evans",
+        "message": "Looking for a 2 bed in Clapham around 2400 a month. No fixed date, maybe early next year.",
+        "source": "website",
+        "email": "mark.evans@example.com",
+        "preferred_area": "Clapham",
+        "budget": "2400/month",
+        "bedrooms": 2
+      }
+    },
+    {
+      "test_id": "L09",
+      "expected_category": "WARM",
+      "why": "early research buyer",
+      "payload": {
+        "name": "Elena Petrova",
+        "message": "Considering buying in Islington with a budget of about 1 million. Just starting to look and want to understand the process.",
+        "source": "website",
+        "email": "elena.petrova@example.com",
+        "preferred_area": "Islington",
+        "budget": 1000000
+      }
+    },
+    {
+      "test_id": "L10",
+      "expected_category": "WARM",
+      "why": "interested, asks about fees",
+      "payload": {
+        "name": "Chris Doyle",
+        "message": "Interested in a 1 bed rental in Greenwich, budget 1700. Could you tell me more about your fees?",
+        "source": "website",
+        "email": "chris.doyle@example.com",
+        "phone": "+44 7700 900110",
+        "preferred_area": "Greenwich",
+        "budget": "1700/month",
+        "bedrooms": 1
+      }
+    },
+    {
+      "test_id": "L11",
+      "expected_category": "WARM",
+      "why": "moving in a couple of months, flexible budget",
+      "payload": {
+        "name": "Lucy Chen",
+        "message": "Thinking of moving to Camden in a couple of months. 1 bed, budget flexible between 1800 and 2000.",
+        "source": "website",
+        "phone": "+44 7700 900111",
+        "preferred_area": "Camden",
+        "budget": "1900/month",
+        "bedrooms": 1
+      }
+    },
+    {
+      "test_id": "L12",
+      "expected_category": "WARM",
+      "why": "not in a hurry, 3 bed sale Richmond",
+      "payload": {
+        "name": "Omar Haddad",
+        "message": "What is available to buy in Richmond, 3 bed? Budget about 1.2 million. Not in a hurry.",
+        "source": "website",
+        "email": "omar.haddad@example.com",
+        "preferred_area": "Richmond",
+        "budget": 1200000,
+        "bedrooms": 3
+      }
+    },
+    {
+      "test_id": "L13",
+      "expected_category": "WARM",
+      "why": "asks about pets, 6 weeks",
+      "payload": {
+        "name": "Grace Taylor",
+        "message": "Do you accept pets? I need a 2 bed in Hackney around 2300 a month in about 6 weeks.",
+        "source": "website",
+        "email": "grace.taylor@example.com",
+        "phone": "+44 7700 900113",
+        "preferred_area": "Hackney",
+        "budget": "2300/month",
+        "bedrooms": 2
+      }
+    },
+    {
+      "test_id": "L14",
+      "expected_category": "WARM",
+      "why": "buyer without mortgage yet",
+      "payload": {
+        "name": "Peter Novak",
+        "message": "Can you explain buying a 1 bed in Hackney around 450000? I do not have a mortgage yet.",
+        "source": "website",
+        "email": "peter.novak@example.com",
+        "preferred_area": "Hackney",
+        "budget": 450000,
+        "bedrooms": 1
+      }
+    },
+    {
+      "test_id": "L15",
+      "expected_category": "COLD",
+      "why": "browsing, no details",
+      "payload": {
+        "name": "Ben Archer",
+        "message": "Just browsing. What areas do you cover?",
+        "source": "website",
+        "email": "ben.archer@example.com"
+      }
+    },
+    {
+      "test_id": "L16",
+      "expected_category": "COLD",
+      "why": "unrealistic: 5 bed house for 1500, no match",
+      "payload": {
+        "name": "Rita Alvarez",
+        "message": "Do you have a 5 bedroom house in Camden for 1500 a month?",
+        "source": "website",
+        "email": "rita.alvarez@example.com",
+        "preferred_area": "Camden",
+        "budget": "1500/month",
+        "bedrooms": 5
+      }
+    },
+    {
+      "test_id": "L17",
+      "expected_category": "COLD",
+      "why": "out of service area (Brighton)",
+      "payload": {
+        "name": "Sam Wright",
+        "message": "Looking for a 2 bed flat in Brighton around 1500 a month.",
+        "source": "website",
+        "email": "sam.wright@example.com",
+        "phone": "+44 7700 900117",
+        "preferred_area": "Brighton",
+        "budget": "1500/month",
+        "bedrooms": 2
+      }
+    },
+    {
+      "test_id": "L18",
+      "expected_category": "COLD",
+      "why": "vague landlord question, no timing",
+      "payload": {
+        "name": "Nina Kovacs",
+        "message": "How much do you charge for a valuation? Maybe next year.",
+        "source": "website",
+        "email": "nina.kovacs@example.com"
+      }
+    },
+    {
+      "test_id": "L19",
+      "expected_category": "COLD",
+      "why": "curious, no plan",
+      "payload": {
+        "name": "Leo Fischer",
+        "message": "Just curious about house prices in London. Not planning anything soon.",
+        "source": "website",
+        "email": "leo.fischer@example.com"
+      }
+    },
+    {
+      "test_id": "L20",
+      "expected_category": "COLD",
+      "why": "2027, no details",
+      "payload": {
+        "name": "Mia Johnson",
+        "message": "I might want to rent something in 2027. No details yet.",
+        "source": "website",
+        "email": "mia.johnson@example.com"
+      }
+    }
+  ]
+}

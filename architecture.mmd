@@ -1,0 +1,47 @@
+%% PropLead Concierge: editable architecture source (Mermaid).
+%% Paste into https://mermaid.live or any Mermaid renderer. architecture.svg and architecture.png
+%% were drawn separately from the same structure; this text file was not rendered when it was written.
+flowchart TD
+  C[Website enquiry<br/>HTTP POST, JSON] --> W
+
+  subgraph WFA[WF-A Intake Pipeline]
+    W[1 Lead Intake Webhook] --> V[2 Authentication and Validation<br/>header token, clean fields]
+    V -->|invalid or spam| REJ[422 rejected, logged]
+    V --> S[3 Security and Spam Checks<br/>spam rules, prompt-injection flag]
+    S --> D[4 Duplicate Check<br/>same email or phone updates one lead]
+    D -->|duplicate| DUP[200 duplicate, 0 AI calls]
+    D --> P[5 Property Matching<br/>available only, best 3]
+    P -->|injection flagged: AI skipped| SC
+    P --> E[6 Mistral Embeddings<br/>mistral-embed, 1024]
+    E --> K[7 pgvector Knowledge Base<br/>17 policy documents]
+    K --> G[8 Groq AI Qualification]
+    G -->|Groq fails| OR[9 OpenRouter Fallback]
+    OR -->|both fail| RO[10 Rules-Only Fallback]
+    G -->|valid JSON| SC
+    OR -->|valid JSON| SC
+    RO --> SC[11 Lead Scoring<br/>rules 0-60 plus AI 0-40, caps]
+    SC --> R[12 Reply Generation<br/>grounded, guard, template fallback]
+    R --> RESP[Webhook response<br/>category and draft reply]
+    RESP -->|HOT only| T[13 Telegram HOT Alert<br/>no contact data]
+  end
+
+  DB[(Supabase PostgreSQL<br/>agency_config, properties, leads,<br/>kb_documents, run_log, error_log)]
+  D <--> DB
+  P <--> DB
+  K <--> DB
+  SC <--> DB
+
+  subgraph WFB[WF-B Daily Digest]
+    DG[14 Daily Digest<br/>counts, WARM, stale leads, AI summary] --> TG1[Telegram digest]
+  end
+  DB --> DG
+
+  subgraph WFC[WF-C Global Error Handler]
+    EH[15 Error Handler<br/>scrub personal data] --> TG2[Telegram error notice]
+    EH --> DB
+  end
+  WFA -. any failure .-> EH
+
+  subgraph WFD[WF-D KB Ingestion, manual]
+    ING[Embed new or changed documents<br/>Mistral] --> DB
+  end

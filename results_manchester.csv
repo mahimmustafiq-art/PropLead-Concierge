@@ -1,0 +1,4 @@
+case,http,category,reply,ms
+M01 expect HOT,200,HOT,"Hi Oliver, we have a perfect match – the 2 bed flat in Ancoats (ref MAN‑R002) at £1550 per month. It’s available from the end of November and we can arrange a viewing as early as tomorrow. Please let us know a convenient time and bring a photo ID. Ou",9944
+M02 expect WARM,200,WARM,"Hi Zara, we have a perfect match for you – the 3 bed house for sale in Chorlton (ref MAN‑S001) priced at £385,000. It meets your criteria and is currently available. Let us know a convenient time for a viewing and we’ll arrange it for you. Feel free ",2159
+M03 expect COLD (London area),200,COLD,"Hello Tim, thank you for contacting Harbor & Pine Realty Manchester. Unfortunately we do not currently cover Camden. We cover Ancoats, Chorlton, Didsbury, Salford Quays, Northern Quarter, Fallowfield. An agent will contact you during office hours, or",2069
