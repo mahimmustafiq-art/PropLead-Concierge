@@ -143,7 +143,7 @@ Full steps are in [SETUP_GUIDE.md](SETUP_GUIDE.md). In short:
 
 ## Demo video
 
-Demo video link: **[add the link here after recording]**
+Demo video link: https://youtu.be/-UA4sExxeng?si=qHDeKfLeqlMsOoo9
 
 ## Screenshots
 
